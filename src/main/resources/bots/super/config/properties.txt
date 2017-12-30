@@ -1,0 +1,8 @@
+url:http://www.alicebot.org
+name:Милена
+email:callmom-info@pandorabots.com
+gender:female
+botmaster:
+organization:ALICE AI Foundation
+version:0.0.4
+

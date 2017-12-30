@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link th:href="@{'/css/style.css?ver='+${#calendars.millisecond(#dates.createNow())}}" type="text/css" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap.min.css}" type="text/css" rel="stylesheet" />
+    <script th:src="@{/js/jquery-3.2.1.slim.min.js}"></script>
+    <script th:src="@{/js/jquery-3.1.0.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{'/js/app.js?ver='+${#calendars.millisecond(#dates.createNow())}}"></script>
+</head>
+<body>
+<div class="chat_window">
+    <ul class="col-sm-12 col-md-12 .col-lg-12 .col-lg-12 messages"></ul>
+    <div class="col-sm-12 col-md-12 .col-lg-12 .col-lg-12 bottom_wrapper clearfix">
+        <div class="message_input_wrapper" style="width: 80%;">
+            <input class="message_input" placeholder="Напишiть повiдомлення..."/>
+        </div>
+        <div class="send_message" style="width: 15%;">
+            <div class="icon">
+                <svg style="width:100%;height:100%" viewBox="0 0 24 24">
+                    <path fill="#337ab7" d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="message_template">
+    <li class="message">
+        <div class="avatar">
+            <img style="border-radius: 100%;width: 100%;height: 100%;" class="avatar-image"/>
+        </div>
+        <div class="title"></div>
+        <div class="text_wrapper">
+            <div class="text"></div>
+        </div>
+    </li>
+</div>
+<div class="request_name_template">
+    <li class="request_name">
+        <div style="font-size: 18px; font-weight: 300; word-wrap: break-word; text-align: center; color: white;">
+            Вітаємо! Як до Вас звертатися?
+        </div>
+        <input class="user_name" type="text"/>
+        <button class="btn btn-lg btn-primary button" style="width: 38%; border-radius: 50px; margin-top: 20px;">OK</button>
+    </li>
+</div>
+
+<div class="operator_avatar">
+    <img style="border-radius: 100%;width: 100%;height: 100%;" src="http://www.konex.com.ua/konex24/avatars/operator.jpg"/>
+</div>
+
+</body>
+</html>

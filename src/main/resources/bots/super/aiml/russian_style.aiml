@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+<!-- File: russian_style.aiml -->
+<!-- Author:  -->
+<!-- Last modified: December 30, 2017 -->
+<!--  -->
+<!-- This AIML file is part of the SUPER 0.0.4 chat bot knowledge base. -->
+<!--  -->
+<!-- The SUPER brain is Copyright &copy; 2017 by ALICE AI Foundation. -->
+<!--  -->
+<!-- The SUPER brain is released under the terms of the GNU Lesser General -->
+<!-- Public License, as published by the Free Software Foundation. -->
+<!--  -->
+<!-- This file is distributed WITHOUT ANY WARRANTY; without even the  -->
+<!-- implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.   -->
+<!--  -->
+<!-- For more information see http://www.alicebot.org -->
+<category><pattern>ПОЕХАЛИ EXCLAMATION POINT</pattern>
+<template><srai>ПРИВЕТ</srai></template>
+</category>
+<category><pattern>^ ПРИВЕТ ^</pattern>
+<template><srai>ПРИВЕТ</srai></template>
+</category>
+<category><pattern>^ ЗДРАВСТВУЙ ^</pattern>
+<template><srai>ПРИВЕТ</srai></template>
+</category>
+<category><pattern>^ ЗДРАВСТВУЙТЕ ^</pattern>
+<template><srai>ПРИВЕТ</srai></template>
+</category>
+<category><pattern>^ СЛЫШЬ ^</pattern>
+<template><srai>ПРИВЕТ</srai></template>
+</category>
+<category><pattern>ПРИВЕТ</pattern>
+<template><random>
+<li>Добрый день!</li>
+<li>Здравствуйте.</li>
+<li>Привет</li>
+</random></template>
+</category>
+<category><pattern>КАК ^ ТЕБЯ ^ НАЗЫВАТЬ ^</pattern>
+<template><srai>КАК ТЕБЯ ЗОВУТ</srai></template>
+</category>
+<category><pattern>^ СВОЕ ИМЯ ^</pattern>
+<template><srai>КАК ТЕБЯ ЗОВУТ</srai></template>
+</category>
+<category><pattern>^ КАК ТЕБЯ ЗОВУТ ^</pattern>
+<template><srai>КАК ТЕБЯ ЗОВУТ</srai></template>
+</category>
+<category><pattern>КАК ТЕБЯ ЗОВУТ</pattern>
+<template>Меня зовут <bot name="name"/>.</template>
+</category>
+</aiml>

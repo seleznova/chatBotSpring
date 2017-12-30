@@ -1,0 +1,10 @@
+0,ПОЕХАЛИ EXCLAMATION POINT,*,*,<srai>ПРИВЕТ</srai>,russian_style.aiml
+0,^ ПРИВЕТ ^,*,*,<srai>ПРИВЕТ</srai>,russian_style.aiml
+0,^ ЗДРАВСТВУЙ ^,*,*,<srai>ПРИВЕТ</srai>,russian_style.aiml
+0,^ ЗДРАВСТВУЙТЕ ^,*,*,<srai>ПРИВЕТ</srai>,russian_style.aiml
+0,^ СЛЫШЬ ^,*,*,<srai>ПРИВЕТ</srai>,russian_style.aiml
+0,ПРИВЕТ,*,*,<random>#Newline<li>Добрый день!</li>#Newline<li>Здравствуйте.</li>#Newline<li>Привет</li>#Newline</random>,russian_style.aiml
+0,КАК ^ ТЕБЯ ^ НАЗЫВАТЬ ^,*,*,<srai>КАК ТЕБЯ ЗОВУТ</srai>,russian_style.aiml
+0,^ СВОЕ ИМЯ ^,*,*,<srai>КАК ТЕБЯ ЗОВУТ</srai>,russian_style.aiml
+0,^ КАК ТЕБЯ ЗОВУТ ^,*,*,<srai>КАК ТЕБЯ ЗОВУТ</srai>,russian_style.aiml
+0,КАК ТЕБЯ ЗОВУТ,*,*,Меня зовут <bot name="name"/>.,russian_style.aiml
