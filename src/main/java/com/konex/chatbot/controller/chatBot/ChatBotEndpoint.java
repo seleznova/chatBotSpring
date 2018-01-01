@@ -8,6 +8,8 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
+import java.util.List;
+
 @SessionScope
 public class ChatBotEndpoint extends TextWebSocketHandler {
     private Chatbot chatbot;
@@ -29,8 +31,10 @@ public class ChatBotEndpoint extends TextWebSocketHandler {
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         String request = message.getPayload();
 
-        session.sendMessage(new TextMessage(Util.getResponseJSON(request, true, false, "")));//user
+        if (!Util.isCommand(request))
+            session.sendMessage(new TextMessage(Util.getResponseJSON(request, true, false, "", "")));//user
 
-        session.sendMessage(new TextMessage(Util.getResponseJSON(chatbot.getResponse(request))));//bot
+        for (Response response : chatbot.getResponse(request))
+            session.sendMessage(new TextMessage(Util.getResponseJSON(response)));//bot
     }
 }

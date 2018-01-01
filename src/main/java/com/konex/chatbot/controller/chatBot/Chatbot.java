@@ -2,12 +2,14 @@ package com.konex.chatbot.controller.chatBot;
 
 import com.konex.chatbot.controller.chatBot.requestHandlers.RequestHandler;
 import com.konex.chatbot.model.Response;
+import com.konex.chatbot.util.Util;
 import org.alicebot.ab.Bot;
 import org.alicebot.ab.Chat;
 import org.alicebot.ab.MagicBooleans;
 import org.alicebot.ab.utils.IOUtils;
 
 import java.io.File;
+import java.util.List;
 
 public class Chatbot {
     Chat chatSession;
@@ -25,7 +27,7 @@ public class Chatbot {
         }
     }
 
-    private static String getResourcesPath() {
+    public static String getResourcesPath() {
         File currDir = new File(".");
         String path = currDir.getAbsolutePath();
         path = path.substring(0, path.length() - 2);
@@ -34,9 +36,15 @@ public class Chatbot {
         return resourcesPath;
     }
 
-    public Response getResponse(String textLine) {
-        String request = chatSession.multisentenceRespond(textLine);
+    public List<Response> getResponse(String textLine) {
+        String request = "";
+        textLine = Util.replaceMark(textLine);
+        if (!Util.isCommand(textLine))
+            request = chatSession.multisentenceRespond(textLine);
+        else
+            request = textLine;
         System.out.println(textLine + " > " + request);
+
         return rh.requestHandler(request);
     }
 }

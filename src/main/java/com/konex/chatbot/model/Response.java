@@ -1,12 +1,13 @@
 package com.konex.chatbot.model;
 
-import java.util.List;
+import java.util.Map;
 
 public class Response {
     private String message;
+    private String template;
     private boolean isUser;
     private boolean isSelect;
-    private List<String> options;
+    private Map<Integer, String> options;
 
     public Response() {
     }
@@ -17,12 +18,26 @@ public class Response {
         this.isSelect = false;
     }
 
+    public Response(String message, boolean isUser) {
+        this.message = message;
+        this.isUser = isUser;
+        this.isSelect = false;
+    }
+
     public String getMessage() {
         return message;
     }
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getTemplate() {
+        return template;
+    }
+
+    public void setTemplate(String template) {
+        this.template = template;
     }
 
     public boolean isUser() {
@@ -41,11 +56,11 @@ public class Response {
         isSelect = select;
     }
 
-    public List<String> getOptions() {
+    public Map<Integer, String> getOptions() {
         return options;
     }
 
-    public void setOptions(List<String> options) {
+    public void setOptions(Map<Integer, String> options) {
         this.options = options;
     }
 }

@@ -1,3 +1,2 @@
 0,^ СКОЛЬКО ^ СТОИТ *,*,*,findGoodsByName<star index="3"/>,search_in_db.aiml
 0,^ ГДЕ ^ КУПИТЬ *,*,*,findStoreByGoodsName<star index="3"/>,search_in_db.aiml
-0,^ ЗАЕБАЛСЯ ^,*,*,fuckedUp,search_in_db.aiml

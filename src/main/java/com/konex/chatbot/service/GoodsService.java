@@ -10,6 +10,66 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GoodsService {
+    public List<Goods> selectByName(String name) {
+        List<Goods> goodsList = new ArrayList<Goods>();
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            Connection c = DriverManager.getConnection("jdbc:sqlite:drug_store.sqlite");
+            c.setAutoCommit(false);
+
+            Statement stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM goods AS g WHERE g.name LIKE '%" + name.toLowerCase() + "%';");
+
+            while (rs.next()) {
+                Goods goods = new Goods();
+                goods.setId(rs.getInt("id"));
+                goods.setName(rs.getString("name"));
+                goods.setPrice(rs.getDouble("price"));
+                goodsList.add(goods);
+            }
+
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        } finally {
+            return goodsList;
+        }
+    }
+
+    public List<Goods> selectById(Long id) {
+        List<Goods> goodsList = new ArrayList<Goods>();
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            Connection c = DriverManager.getConnection("jdbc:sqlite:drug_store.sqlite");
+            c.setAutoCommit(false);
+
+            Statement stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM goods AS g WHERE g.id = " + id + ";");
+
+            while (rs.next()) {
+                com.konex.chatbot.model.Goods goods = new com.konex.chatbot.model.Goods();
+                goods.setId(rs.getInt("id"));
+                goods.setName(rs.getString("name"));
+                goods.setPrice(rs.getDouble("price"));
+                goodsList.add(goods);
+            }
+
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        } finally {
+            return goodsList;
+        }
+    }
+
     public void insert(Goods goods) {
         try {
             Class.forName("org.sqlite.JDBC");
@@ -30,38 +90,6 @@ public class GoodsService {
             System.exit(0);
         }
         System.out.println("Records created successfully");
-    }
-
-    public List<Goods> selectByName(String name) {
-        List<Goods> goodsList = new ArrayList<Goods>();
-
-        try {
-            Class.forName("org.sqlite.JDBC");
-            Connection c = DriverManager.getConnection("jdbc:sqlite:drug_store.sqlite");
-            c.setAutoCommit(false);
-//            System.out.println("Opened database successfully");
-
-            Statement stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM goods AS g WHERE g.name LIKE '%" + name.toLowerCase() + "%';");
-
-            while (rs.next()) {
-                Goods goods = new Goods();
-                goods.setId(rs.getInt("id"));
-                goods.setName(rs.getString("name"));
-                goods.setPrice(rs.getDouble("price"));
-                goodsList.add(goods);
-            }
-
-            rs.close();
-            stmt.close();
-            c.close();
-//            System.out.println("Operation done successfully");
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-            System.exit(0);
-        } finally {
-            return goodsList;
-        }
     }
 
     public void update(Goods goods) {

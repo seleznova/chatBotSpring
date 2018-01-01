@@ -11,6 +11,7 @@ var Message;
 var operatorAvatarImage = 'http://www.konex.com.ua/konex24/avatars/operator.jpg';
 var userAvatarImage = 'http://www.konex.com.ua/konex24/avatars/0.jpg';
 var baseUrl = '/';
+var optionsHeight = 40;
 
 /////////////////////////////////////////////////////////////////////
 function updateTarget() {
@@ -46,11 +47,9 @@ Message = function (arg) {
             $message = $($('.message_template').clone().html());
             $message.addClass(_this.message_side).find('.text').html(_this.text);
             $message.find('.title').html(_this.title);
-            $message.find('.avatar-image').attr("src", arg.message_side == 'right' ? operatorAvatarImage : userAvatarImage);
+            // $message.find('.avatar-image').attr("src", arg.message_side == 'right' ? operatorAvatarImage : userAvatarImage);
             $('.messages').append($message);
-            // return setTimeout(function () {
-            return $message.addClass('appeared');
-            // }, 0);
+            return $message.addClass('appeared');// }, 0);
         };
     }(this);
     return this;
@@ -65,26 +64,37 @@ function addMessage(text) {
     message = new Message({
         text: text.message,
         message_side: text.isUser ? 'left' : 'right',
-        title: text.isUser ? getCurrentTime() + ' • Ви' : 'Фармацевт, Марина • ' + getCurrentTime()
+        title: text.isUser ? getCurrentTime() + ' • Ви' : 'Милена • ' + getCurrentTime()
     });
     message.draw();
 
     return $messages.animate({scrollTop: $messages.prop('scrollHeight')}, 300);
 }
 
-function addOptions(options) {
-    $messages = $('.messages');
-    selectOptions = '<li style="text-align: center">';
+function addOptions(options, template) {
+    $messages = $(".messages");
+    $options = $('.options');
+    $options.css("height", $('.send_message').height() * 3.5);
+    selectOptions = '<ul style="overflow: auto; height:  100%;"><li style="text-align: center; list-style: none;">';
 
-    $.each(options, function (index, obj) {
-        selectOptions = selectOptions + '<button onclick="ws.send('+ "'" + obj + "'" + ')" type="button" class="option">' + obj + '</button>';
+    $.each(options, function (key, obj) {
+        selectOptions = selectOptions + '<button onclick="sendOptions(' + "'" + template + key + "'" + ')" type="button" class="option">' + obj + '</button>';
     });
 
-    selectOptions = selectOptions + '</li>';
+    selectOptions = selectOptions + '</li></ul>';
 
-    $messages.append(selectOptions);
+    $options.append(selectOptions);
 
+    $messages.css("height", $(window).height() - $(".bottom_wrapper").height() - optionsHeight);
     $messages.animate({scrollTop: $messages.prop('scrollHeight')}, 0);
+}
+
+function sendOptions(template_key) {
+    ws.send(template_key);
+    $options = $('.options');
+    $options.empty();
+    $options.css("height", 0);
+    $(".messages").css("height", $(window).height() - $(".bottom_wrapper").height() - optionsHeight);
 }
 
 function getCurrentTime() {
@@ -114,7 +124,7 @@ function onMessage(data) {
     addMessage(text);
 
     if (data.isSelect) {
-        addOptions(data.options);
+        addOptions(data.options, data.template);
     }
 }
 
@@ -156,13 +166,13 @@ function ready() {
 
         var originalSize = $(window).width() + $(window).height();
 
-        $(".messages").css("height", $(window).height() - $(".bottom_wrapper").height() - 40);
+        $(".messages").css("height", $(window).height() - $(".bottom_wrapper").height() - optionsHeight);
 
         $(window).resize(function () {
             if ($(window).width() + $(window).height() != originalSize) {
-                $(".messages").css("height", $(window).height() - $(".bottom_wrapper").height() - 40);
+                $(".messages").css("height", $(window).height() - $(".bottom_wrapper").height() - optionsHeight);
             } else {
-                $(".messages").css("height", $(window).height() - $(".bottom_wrapper").height() - 40);
+                $(".messages").css("height", $(window).height() - $(".bottom_wrapper").height() - optionsHeight);
             }
 
             $('.messages').animate({scrollTop: $('.messages').prop('scrollHeight')}, 300);
