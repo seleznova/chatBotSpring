@@ -2,7 +2,7 @@
 <aiml>
 <!-- File: update.aiml -->
 <!-- Author:  -->
-<!-- Last modified: January 06, 2018 -->
+<!-- Last modified: January 07, 2018 -->
 <!--  -->
 <!-- This AIML file is part of the SUPER 0.0.4 chat bot knowledge base. -->
 <!--  -->
@@ -16,7 +16,7 @@
 <!--  -->
 <!-- For more information see http://www.alicebot.org -->
 <category><pattern>BUILD</pattern>
-<template>Sat Jan 06 22:47:56 EET 2018</template>
+<template>Sun Jan 07 00:55:36 EET 2018</template>
 </category>
 <category><pattern>DELEVLOPMENT ENVIRONMENT</pattern>
 <template>Program AB 0.0.4.2 beta -- AI Foundation Reference AIML 2.0 implementation</template>

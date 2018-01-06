@@ -1,7 +1,7 @@
-Saturday:Sunday
-Friday:Saturday
-Thursday:Friday
-Wednesday:Thursday
-Tuesday:Wednesday
-Monday:Tuesday
-Sunday:Monday
+7:понедельник
+6:воскресенье
+5:субота
+4:пятница
+3:четверг
+2:среда
+1:вторник
