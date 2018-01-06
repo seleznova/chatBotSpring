@@ -1,0 +1,2 @@
+0,ВРЕМЯ,*,*,The time is <date format="%I:%M %p" jformat="h:mm a"/>,system.aiml
+0,ДАТА,*,*,Today is <date format="%B %d#Comma %Y" jformat="MMMMMMMMM dd#Comma yyyy"/>,system.aiml
