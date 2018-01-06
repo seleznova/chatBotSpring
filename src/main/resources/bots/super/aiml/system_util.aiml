@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
-<!-- File: udc.aiml -->
+<!-- File: system_util.aiml -->
 <!-- Author:  -->
 <!-- Last modified: января 05, 2018 -->
 <!--  -->
@@ -15,12 +15,7 @@
 <!-- implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.   -->
 <!--  -->
 <!-- For more information see http://www.alicebot.org -->
-<category><pattern>*</pattern>
-<template><random>
-            <li>Мне нечего сказать по этому поводу</li>
-            <li>У меня нет ответа.</li>
-            <li>Затрудняюсь ответить.</li>
-            <li>Сложно сказать...</li>
-        </random></template>
+<category><pattern>WHAT IS THE DATE TODAY</pattern>
+<template><system>date</system></template>
 </category>
 </aiml>

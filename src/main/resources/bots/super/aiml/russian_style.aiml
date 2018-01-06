@@ -2,7 +2,7 @@
 <aiml>
 <!-- File: russian_style.aiml -->
 <!-- Author:  -->
-<!-- Last modified: January 01, 2018 -->
+<!-- Last modified: января 05, 2018 -->
 <!--  -->
 <!-- This AIML file is part of the SUPER 0.0.4 chat bot knowledge base. -->
 <!--  -->
@@ -48,5 +48,11 @@
 </category>
 <category><pattern>КАК ТЕБЯ ЗОВУТ</pattern>
 <template>Меня зовут <bot name="name"/>.</template>
+</category>
+<category><pattern>МЕНЯ ЗОВУТ *</pattern>
+<template>Привет <set name="username"> <star/></set>!</template>
+</category>
+<category><pattern>^ КАК МЕНЯ ЗОВУТ ^</pattern>
+<template>Твое имя <get name="username"/></template>
 </category>
 </aiml>

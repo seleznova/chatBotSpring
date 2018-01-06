@@ -4,7 +4,8 @@ public enum Commands {
     FINDGOODSBYNAME("findGoodsByName"),
     FINDGOODSBYID("findGoodsById"),
     FINDSTOREBYGOODSID("findStoreByGoodsId"),
-    FINDSTOREBYGOODSNAME("findStoreByGoodsName");
+    FINDSTOREBYGOODSNAME("findStoreByGoodsName"),
+    FINDGOODSBYIDANDSTOREID("findGoodsByStoreIdAndId");
 
     private String value;
 

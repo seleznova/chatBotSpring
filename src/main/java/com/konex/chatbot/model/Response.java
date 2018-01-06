@@ -7,7 +7,7 @@ public class Response {
     private String template;
     private boolean isUser;
     private boolean isSelect;
-    private Map<Integer, String> options;
+    private Map<String, String> options;
 
     public Response() {
     }
@@ -56,11 +56,11 @@ public class Response {
         isSelect = select;
     }
 
-    public Map<Integer, String> getOptions() {
+    public Map<String, String> getOptions() {
         return options;
     }
 
-    public void setOptions(Map<Integer, String> options) {
+    public void setOptions(Map<String, String> options) {
         this.options = options;
     }
 }

@@ -18,9 +18,10 @@ public class RequestHandler {
             return goodsHandler.getResponseByName(request.replace(Commands.FINDGOODSBYNAME.getValue(), ""));
         } else if (request.contains(Commands.FINDGOODSBYID.getValue())) {
             return goodsHandler.getResponseById(Long.valueOf(request.replace(Commands.FINDGOODSBYID.getValue(), "")));
-        }
-        else if (request.contains(Commands.FINDSTOREBYGOODSNAME.getValue())) {
+        } else if (request.contains(Commands.FINDSTOREBYGOODSNAME.getValue())) {
             return storeHandler.getResponseByGoodsName(request.replace(Commands.FINDSTOREBYGOODSNAME.getValue(), ""));
+        } else if (request.contains(Commands.FINDGOODSBYIDANDSTOREID.getValue())) {
+            return storeHandler.getResponseByGoodsIdAndStoreId(request.replace(Commands.FINDGOODSBYIDANDSTOREID.getValue(), "").split("&"));
         } else if (request.contains(Commands.FINDSTOREBYGOODSID.getValue())) {
             return storeHandler.getResponseByGoodsId(Long.valueOf(request.replace(Commands.FINDSTOREBYGOODSID.getValue(), "")));
         } else {

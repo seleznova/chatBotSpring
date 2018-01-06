@@ -41,9 +41,9 @@ public class GoodsHandler {
         response.setSelect(true);
         response.setTemplate(template);
 
-        Map<Integer, String> options = new HashMap<>();
+        Map<String, String> options = new HashMap<>();
         for (Goods g : goodsList)
-            options.put(g.getId(), g.getName());
+            options.put(String.valueOf(g.getId()), g.getName());
         response.setOptions(options);
 
         return response;

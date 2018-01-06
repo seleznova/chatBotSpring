@@ -79,6 +79,68 @@ public class StoresService {
         }
     }
 
+    public List<Goods> getResponseByGoodsIdAndStoreId(String sid, String gid) {
+        List<Goods> goodsList = new ArrayList<Goods>();
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            Connection c = DriverManager.getConnection("jdbc:sqlite:drug_store.sqlite");
+            c.setAutoCommit(false);
+
+            Statement stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM  goods as g WHERE  g.id in(" +
+                    "SELECT gs.id_goods from goods_store as gs WHERE" +
+                    " gs.id_goods = " + gid + " AND  gs.id_store = " + sid + ")");
+
+            while (rs.next()) {
+                Goods goods = new Goods();
+                goods.setId(rs.getInt("id"));
+                goods.setName(rs.getString("name"));
+                goods.setPrice(rs.getDouble("price"));
+                goodsList.add(goods);
+            }
+
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        } finally {
+            return goodsList;
+        }
+    }
+
+    public List<Store> selectById(Long id) {
+        List<Store> storeList = new ArrayList<Store>();
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            Connection c = DriverManager.getConnection("jdbc:sqlite:drug_store.sqlite");
+            c.setAutoCommit(false);
+
+            Statement stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM store AS s WHERE s.id=" + id);
+
+            while (rs.next()) {
+                Store store = new Store();
+                store.setId(rs.getInt("id"));
+                store.setName(rs.getString("name"));
+                store.setAddress(rs.getString("address"));
+                storeList.add(store);
+            }
+
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        } finally {
+            return storeList;
+        }
+    }
+
     public void insert(Goods goods) {
         try {
             Class.forName("org.sqlite.JDBC");

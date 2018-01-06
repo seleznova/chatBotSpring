@@ -7,4 +7,6 @@
 0,КАК ^ ТЕБЯ ^ НАЗЫВАТЬ ^,*,*,<srai>КАК ТЕБЯ ЗОВУТ</srai>,russian_style.aiml
 0,^ СВОЕ ИМЯ ^,*,*,<srai>КАК ТЕБЯ ЗОВУТ</srai>,russian_style.aiml
 0,^ КАК ТЕБЯ ЗОВУТ ^,*,*,<srai>КАК ТЕБЯ ЗОВУТ</srai>,russian_style.aiml
-0,КАК ТЕБЯ ЗОВУТ,*,*,Меня зовут <bot name="name"/>.,russian_style.aiml
+0,КАК ТЕБЯ ЗОВУТ,*,*,Меня зовут <bot name="XXX"/>.,russian_style.aiml
+0,МЕНЯ ЗОВУТ *,*,*,Привет <set name="username"> <star/></set>!,russian_style.aiml
+0,^ КАК МЕНЯ ЗОВУТ ^,*,*,Твое имя <get name="username"/>,russian_style.aiml

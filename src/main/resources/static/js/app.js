@@ -11,7 +11,7 @@ var Message;
 var operatorAvatarImage = 'http://www.konex.com.ua/konex24/avatars/operator.jpg';
 var userAvatarImage = 'http://www.konex.com.ua/konex24/avatars/0.jpg';
 var baseUrl = '/';
-var optionsHeight = 40;
+var optionsHeight = 18;
 
 /////////////////////////////////////////////////////////////////////
 function updateTarget() {
